@@ -1,35 +1,29 @@
 from turtle import Turtle
 
-STARTING_POSITIONS = [(350, 0), (350, -20), (350, -40), (350, -60)]
-SECOND_STARTING_POSITIONS = [(-350, 0), (-350, -20), (-350, -40), (-350, -60)]
-
+STARTING_POSITION = (350, 0)
+SECOND_STARTING_POSITION = (-350, 0)
+MOVE_DISTANCE = 20
 
 class Paddle():
 
     def __init__(self):
+        self.paddle = Turtle()
         self.segments = []
         self.create_paddle()
 
     def create_paddle(self):
-        for i in STARTING_POSITIONS:
-            self.add_segment(i)
+        self.paddle.penup()
+        self.paddle.color("white")
+        self.paddle.shape("square")
+        self.paddle.shapesize(stretch_wid=5, stretch_len=1)
+        self.paddle.goto(STARTING_POSITION)
 
+    def up(self):
+        new_y = self.paddle.ycor() + 20
+        self.paddle.goto(self.paddle.xcor(), new_y)
 
-    def add_segment(self, position):
-        new_segment = Turtle()
-        new_segment.penup()
-        new_segment.color("white")
-        new_segment.shape("square")
-        new_segment.goto(position)
-        self.segments.append(new_segment)
+    def down(self):
+        new_y = self.paddle.ycor() - 20
+        self.paddle.goto(self.paddle.xcor(), new_y)
 
-
-class SecondPaddle(Paddle):
-
-    def __init__(self):
-        super().__init__()
-
-    def create_paddle(self):
-        for i in SECOND_STARTING_POSITIONS:
-            self.add_segment(i)
 
