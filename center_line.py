@@ -8,6 +8,7 @@ class Line(Turtle):
         self.pensize(10)
         self.penup()
         self.color("white")
+        self.shapesize(stretch_len=0.5, stretch_wid=0.5)
         self.goto(0, 290)
         self.draw_dash_line()
 

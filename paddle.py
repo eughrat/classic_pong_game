@@ -1,11 +1,11 @@
 from turtle import Turtle
 
-
 MOVE_DISTANCE = 20
+
 
 class Paddle(Turtle):
 
-    def __init__(self,start_position):
+    def __init__(self, start_position):
         super().__init__()
         self.start_position = start_position
         self.segments = []
@@ -25,5 +25,3 @@ class Paddle(Turtle):
     def down(self):
         new_y = self.ycor() - 20
         self.goto(self.xcor(), new_y)
-
-
