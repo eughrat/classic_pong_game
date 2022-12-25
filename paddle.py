@@ -8,7 +8,6 @@ class Paddle(Turtle):
     def __init__(self, start_position):
         super().__init__()
         self.start_position = start_position
-        self.segments = []
         self.create_paddle()
 
     def create_paddle(self):
